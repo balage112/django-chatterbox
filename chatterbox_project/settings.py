@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #'chatterbox.apps.ChatterboxConfig', # ChatterboxConfing jsem vzal z aplikace chatterbox a složka settings.py - profi užívání
+
+    'chatterbox',  # druhý způsob importu (jméno aplikace)
 ]
 
 MIDDLEWARE = [
