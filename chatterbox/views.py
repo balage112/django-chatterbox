@@ -24,4 +24,4 @@ def room (request, pk):
     room = Room.objects.get(id=pk) # najdeme místnost se zadaným id
     messages = Message.objects.filter(room=pk) # vybereme všechny zprávy dané místnosti
     context = {"room": room,"messages": messages}
-    return render(request,"chatterbox/room.html",context)
+    return render(request,"chatterbox/list_of_rooms.html",context)
