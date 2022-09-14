@@ -1,0 +1,96 @@
+/* common styles */
+body {
+    background: #add8e6;
+}
+
+header {
+    font-size: 40px
+}
+
+nav ul {
+    list-style: none; /* bez teček */
+}
+
+nav li {
+    display: inline-block;
+    margin: -3px; /* mezera nahoře, dole, vpravo */
+    border: solid 2px #eb4034;
+    padding: 10px;
+}
+
+/* home.html */
+.welcome {
+    font-size: 32px;
+}
+/* list_of_rooms.html */
+.list-of-rooms {
+    font-size: 32px;
+}
+
+.rooms-list ul {
+    list-style: none;
+}
+/* room.html */
+.room-descr {
+    font-size: 20px;
+    margin-bottom: 20px; /* mezera dole */
+}
+
+
+.messsage-form {
+    margin-bottom: 20px;
+}
+
+
+input[type=text] {
+    width: 80%;
+}
+
+input[type=submit] {
+    width: 50px;
+}
+
+.messages-box {
+
+}
+
+.other-message {
+    width: 80%;
+    border: solid 3px #eb4034;
+    border-radius: 10px;
+    padding: 10px;
+    background: white;
+    margin-bottom: 10px;
+}
+
+.my-message {
+    width: 80%;
+    border: solid 3px #000FF8;
+    border-radius: 10px;
+    padding: 10px;
+    background: white;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+/* create_room-html */
+
+.form-name {
+    margin-bottom: 10px;
+}
+
+.label {
+    width: 100px;
+    float:left; /* div no break */
+}
+
+.submit {
+    margin-left: 100px;
+}
+
+/* login.html */
+
+.form-row {
+    margin-bottom: 15px;
+}
