@@ -37,9 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # naše apliakce v rámci projectu
     #'chatterbox.apps.ChatterboxConfig', # ChatterboxConfing jsem vzal z aplikace chatterbox a složka settings.py - profi užívání
 
     'chatterbox',  # druhý způsob importu (jméno aplikace)
+    'accounts', # nutno zaregistrovat další aplikaci
 ]
 
 MIDDLEWARE = [
@@ -124,3 +127,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# nutno přidat login a authentikaci - pokud se zaloguji tak mě to hodí na homepage, pokud se odhlásím tak mě to hodí na login
+# mohu místo login dát home nebo i něco jiného
+
+LOGIN_REDIRECT_URL = "home"
+LOGOUT_REDIRECT_URL = "login"
