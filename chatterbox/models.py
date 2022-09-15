@@ -26,6 +26,7 @@ class Message(models.Model):
                                                       # vytvoření zprávy
     updated = models.DateTimeField(auto_now=True) # auto_now = při jakékoliv změněn zazanammenj čas
 
+
     class Meta:
         ordering = ['-created','-updated'] # bez minus je v defaultu ASC, s minusem nastavím DESC
 
