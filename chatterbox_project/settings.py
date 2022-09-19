@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # browser reload přidáváme z chatterbox/room.html
+    'django_browser_reload',
+
     # naše apliakce v rámci projectu
     #'chatterbox.apps.ChatterboxConfig', # ChatterboxConfing jsem vzal z aplikace chatterbox a složka settings.py - profi užívání
 
@@ -53,7 +56,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_browser_reload.middleware.BrowserReloadMiddleware', # přidáváme z chatterbox/room.html + musím nanstalovat
+    # knihovnu pip install django-browser-reload + musím přidat do urls.py
 ]
+
 
 ROOT_URLCONF = 'chatterbox_project.urls'
 
@@ -129,6 +135,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # nutno přidat login a authentikaci - pokud se zaloguji tak mě to hodí na homepage, pokud se odhlásím tak mě to hodí na login
+
 # mohu místo login dát home nebo i něco jiného
 
 LOGIN_REDIRECT_URL = "home"

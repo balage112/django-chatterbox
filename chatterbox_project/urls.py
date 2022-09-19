@@ -33,5 +33,7 @@ urlpatterns = [
     path("accounts/", include("accounts.urls")), # vytvoří pouze signup
     path("accounts/", include("django.contrib.auth.urls")), # vytvoří zbytek - login, logout, password_change atd...
 
-    #path("__reload__/", include("django_browser_reload.urls")) # automatický reload stránky
+    path("__reload__/", include("django_browser_reload.urls")), # automatický reload stránky
+    path('create_room/', chatterbox.views.create_room, name="create_room"),
+
 ]

@@ -17,6 +17,14 @@ class Room(models.Model):
     def __str__(self):
         return self.name
 
+    def messages_count(self):
+        room_messages = self.message_set.all()
+        return room_messages.count()
+
+    def last_message_time(self):
+        room_message = self.message_set.all()[0]
+        return room_message.updated
+
 
 class Message(models.Model):
     body = models.TextField() # null je defaultně False a blank také False
