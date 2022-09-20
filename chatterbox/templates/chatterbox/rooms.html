@@ -1,5 +1,7 @@
 {% extends 'main.html' %}
 
+{% load static %}
+
 {% block title %}Chatterbox - rooms{% endblock %}
 
 {% block content %}
@@ -9,12 +11,18 @@
             {% for room in rooms %}
             <li>
                 <a href="{% url 'room' room.id %}">{{ room.name }}</a> {{ room.description }}
-                ({{ room.messages_count}} messages,
-
+                {% if room.host %}
+                    Host: {{ room.host}}
+                    {% if room.host.id == request.user.id %} <!--Pokud je ppřihlášený "majitel" místnsti tak ji může smazat -->
+                        <a href="{% url 'delete_room' room.id %}"><img src="{% static 'chatterbox/cross.png' %} " alt="Delete"
+                        width="12px"></a>
+                        <a href="{% url 'edit_room' room.id %}">🖉</a>
+                    {% endif %}
+                {% endif %}
                 {% if room.messages_count > 0 %}
-                    last message date: {{ room.last_message_time }})
+                   {{ room.messages_count}} messages, last message date: {{ room.last_message_time }})
                 {% else %}
-                    )
+                    (no messages)
                 {% endif %}}
 
             </li>

@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 
 class Room(models.Model):
-    #host = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    host = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     name = models.CharField(max_length=200)
     description = models.TextField(null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
@@ -24,6 +24,7 @@ class Room(models.Model):
     def last_message_time(self):
         room_message = self.message_set.all()[0]
         return room_message.updated
+
 
 
 class Message(models.Model):

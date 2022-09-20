@@ -1,7 +1,11 @@
 from django.contrib.auth.decorators import login_required
+from django.forms import ModelForm
 from django.shortcuts import render, HttpResponse, redirect, HttpResponseRedirect
 
 from chatterbox.models import Room, Message
+from django.urls import reverse_lazy
+from django.utils.decorators import method_decorator
+from django.views.generic import UpdateView
 
 
 # Create your views here.
@@ -64,6 +68,7 @@ def create_room(request):
         description = request.POST.get('description').strip()
         if len(name) > 0 and len(description) > 0:
             room = Room.objects.create(
+                host=request.user,
                 name=name,
                 description=description
             )
@@ -71,3 +76,24 @@ def create_room(request):
             return redirect('room', pk=room.id)
 
     return render(request, 'chatterbox/create_room.html')
+@login_required
+def delete_room(request,pk):
+    room = Room.objects.get(id=pk)
+    room.delete()
+    return redirect("rooms")
+
+# vytvoříme formulář
+
+class RoomEditForm(ModelForm): #ModelFomr musíme importovat z Django
+    class Meta:
+        model = Room # beru z models.py class Room
+        fields = "__all__" # všechna pole
+
+
+@method_decorator(login_required, name="dispatch") # musíme být přihlášeni abychom mohli editovat
+class EditRoom(UpdateView): # UpdateView musíme importovat z Django
+    template_name = "chatterbox/edit_room.html"
+    model = Room
+    form_class = RoomEditForm
+    success_url = reverse_lazy("rooms") # přesměruje na rooms
+

@@ -28,6 +28,8 @@ urlpatterns = [
     path('search/<s>', chatterbox.views.search, name="search"),
     path('room/<str:pk>/', chatterbox.views.room, name="room"),
     path('rooms/', chatterbox.views.rooms, name="rooms"),
+    path('delete_room/<str:pk>/', chatterbox.views.delete_room, name="delete_room"),
+    path("edit_room/<pk>/", chatterbox.views.EditRoom.as_view(), name="edit_room"),
 
     # accounts aplikace
     path("accounts/", include("accounts.urls")), # vytvoří pouze signup
@@ -35,5 +37,6 @@ urlpatterns = [
 
     path("__reload__/", include("django_browser_reload.urls")), # automatický reload stránky
     path('create_room/', chatterbox.views.create_room, name="create_room"),
+
 
 ]
