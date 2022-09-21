@@ -75,7 +75,7 @@ def room(request, pk):
         body = request.POST.get('body').strip()
 
 
-        if len(body) > 0:
+        if len(body) > 0 or request.FILES.get('upload'):
             message = Message.objects.create(
                 user=request.user,
                 room=room,
