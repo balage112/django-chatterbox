@@ -31,6 +31,7 @@ class Message(models.Model):
     body = models.TextField() # null je defaultně False a blank také False
     room = models.ForeignKey(Room, on_delete=models.CASCADE) # on_delete=models.CASCADE = když se smaže room tak se smažou i lavinově zprávy
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    file = models.TextField(null=True, blank=True) # file attribute in model is not a file field, it is a text field, because we will store the file path in it
     created = models.DateTimeField(auto_now_add=True) # zazanamenej čas při vytvoření zprávy auto_now_add aniž bychom na created šáhli tak jakmile se vytvoří zpráva tak Django zazanmená aktuální čas
                                                       # vytvoření zprávy
     updated = models.DateTimeField(auto_now=True) # auto_now = při jakékoliv změněn zazanammenj čas

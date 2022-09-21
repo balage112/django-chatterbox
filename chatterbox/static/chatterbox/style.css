@@ -82,9 +82,25 @@ input[type=submit] {
     margin-left: auto;
 }
 
+.my-message-file {
+    width: 50px;
+    border: solid 2px #b81a51;
+    margin-top: -20px;
+    margin-right: 10px;
+    margin-left: auto;
+}
+
 .other-message-info {
     font-size: 14px;
     width: 20%;
+}
+
+.other-message-file {
+    width: 50px;
+    border: solid 2px #b81a51;
+    margin-top: -20px;
+    margin-left: 10px;
+    margin-right: auto;
 }
 
 .message-user {
@@ -129,3 +145,19 @@ input[type=submit] {
     float: right;
     margin-right: 40px;
 }
+/* jelikož se jedná o id tak není tečka, ale hastag # */
+#search {
+    position: absolute;
+    top: 10px;
+    right: 28px;
+    height: 50px;
+    line-height: 50px;
+}
+
+#search input.text {
+    padding: 10px 40px 10px 10px;
+    background: rgba(222, 231, 250, 1) url("search.png")  top right no-repeat;
+    width: 200px;
+    border: solid 1px #ccc;
+}
+
