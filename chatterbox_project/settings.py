@@ -46,6 +46,8 @@ INSTALLED_APPS = [
 
     'chatterbox',  # druhý způsob importu (jméno aplikace)
     'accounts', # nutno zaregistrovat další aplikaci
+    'profiles', # nutno zaregistrovat další aplikaci - v tomto případě je to profiles, kterou jsme vytvořili
+    # python manage.py startapp profiles - za startapp píšu název aplikace, kterou chci vytvořit
 ]
 
 MIDDLEWARE = [

@@ -16,8 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 import chatterbox.views
+import profiles.views
 from django.conf import settings  # add this - kvůli ukládání příloh
 from django.conf.urls.static import static  # add this kvůli ukládání příloh
+
+#from chatterbox_project import profiles
+#import chatterbox.views
+#import profiles.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -35,6 +40,11 @@ urlpatterns = [
     path('delete_room_yes/<str:pk>/', chatterbox.views.delete_room_yes, name="delete_room_yes"),
     path("edit_room/<pk>/", chatterbox.views.EditRoom.as_view(), name="edit_room"),
 
+    # profiles aplikace
+    path("users/", profiles.views.profiles_list, name="profiles"),
+    path('user/<str:pk>/', profiles.views.user_profile, name="profile"),
+    path('edit_user/<pk>/', profiles.views.EditProfile.as_view(), name="edit_profile"),
+
     # accounts aplikace
     path("accounts/", include("accounts.urls")), # vytvoří pouze signup
     path("accounts/", include("django.contrib.auth.urls")), # vytvoří zbytek - login, logout, password_change atd...
@@ -42,3 +52,5 @@ urlpatterns = [
     path("__reload__/", include("django_browser_reload.urls")), # automatický reload stránky
     path('create_room/', chatterbox.views.create_room, name="create_room"),
     ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # add static
+
+

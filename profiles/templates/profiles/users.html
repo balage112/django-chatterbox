@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+
+{% block title %} Users {% endblock %}
+
+
+{% block content %}
+
+<div class="list-of-users"> List of users:
+    <ul>
+        {% for profile in profiles %}
+            <li>
+                <a href="{% url 'profile' profile.id %}">{{ profile.user.username }}</a> <!-- definici ve views.py jsem si pojemnoval user a v urls.py
+                 jsem si tu cestu pojmenoval jako profile a to píšu sem do url-->
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}
