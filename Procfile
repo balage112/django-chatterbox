@@ -1,0 +1,1 @@
+web: gunicorn chatterbox_project.wsgi:application --log-file -

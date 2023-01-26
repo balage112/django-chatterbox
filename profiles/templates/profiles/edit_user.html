@@ -1,0 +1,24 @@
+{% extends 'main.html' %}
+
+b{% block title %} Edit user: {{ profile.user.username }} {% endblock %}
+
+
+{% block content %}
+
+{% if profile.user.id == request.user.id %}
+<form method="POST" action="">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <button type="submit">SAVE CHANGES</button>
+</form>
+
+    <!-- TODO redirect a vkládat obrázek TODO vytvořit aplikaci blog - když bude mít uživatel blog tak se to proklikne
+     pokud budu koukat na svůj blog tak budu moci přidat zprávu  vkládat obrázky a do jednoho příspěvku vložit
+     více obrázků-->
+
+{% endif %}
+
+
+{% endblock %}

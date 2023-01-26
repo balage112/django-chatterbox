@@ -1,0 +1,10 @@
+{% extends 'main.html' %}
+
+{% block title %}Chatterbox - home{% endblock %}
+
+{% block content %}
+    {% if request.user.is_authenticated %}
+    <div class="user_hello">Hello {{ request.user.username }} welcome and have fun!</div>
+    {% endif %}
+    <div class="welcome">Welcome in our chatterbox.</div>
+{% endblock %}
